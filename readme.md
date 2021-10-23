@@ -109,7 +109,9 @@ cat kubespray/inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml
 ~~~
 
 ~~~
-ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml #only single machine run, --limit <hostname or ip>
+ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root cluster.yml
+
+#only single machine run, --limit <hostname or ip>
 ~~~
 
 ##### You must change $USER with real user
