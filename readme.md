@@ -2,7 +2,7 @@
 
 
 ~~~
-fatlan@fatih-kube-master01:~$ kubectl get nodes -o wide
+fatlan@kube-master01:~$ kubectl get nodes -o wide
 NAME            STATUS   ROLES                  AGE     VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION     CONTAINER-RUNTIME
 kube-master01   Ready    control-plane,master   5h51m   v1.22.2   10.10.10.191  <none>        Ubuntu 20.04.3 LTS   5.4.0-89-generic   docker://20.10.9
 kube-master02   Ready    control-plane,master   5h51m   v1.22.2   10.10.10.192  <none>        Ubuntu 20.04.3 LTS   5.4.0-89-generic   docker://20.10.9
