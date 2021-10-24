@@ -1,6 +1,6 @@
 # ![](5nodeskube.png)
 
-# Kubernetes Install With Kubespray on Ubuntu20LTS
+# Kubernetes Install(5 Node = 3 Master + 2 Worker) With Kubespray on Ubuntu20LTS
 
 
 ~~~
