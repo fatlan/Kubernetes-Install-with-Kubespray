@@ -143,5 +143,5 @@ export LC_ALL=C
 ~~~
 
 
-ref: [1](https://github.com/kubernetes-sigs/kubespray) | [2](https://betterprogramming.pub/kubernetes-tips-ha-cluster-with-kubespray-69e5bb2fa444)
+ref: [1](https://github.com/kubernetes-sigs/kubespray)
 
