@@ -51,7 +51,7 @@ CONFIG_FILE=inventory/mycluster/hosts.yaml python3 contrib/inventory_builder/inv
 
 ##### Change below host names
 ~~~
-vi kubespray/inventory/mycluster/hosts.yaml
+vi inventory/mycluster/hosts.yaml
 ~~~
 ~~~
 all:
@@ -105,11 +105,13 @@ all:
 **Aşağıda cat ettiiğimiz dosyaları edit edip, parametrik değerleri değiştirebilirsiniz**
 **Network plugin, pod subneti, domain, container runtime vs. gibi bilgiler değiştirebilirsiniz**
 ~~~
-cat kubespray/inventory/mycluster/group_vars/all/all.yml
+cat inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml
 
-cat kubespray/cluster.yml
+cat inventory/mycluster/group_vars/k8s_cluster/addons.yml
 
-cat kubespray/inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml
+cat inventory/mycluster/group_vars/all/all.yml
+
+cat cluster.yml
 ~~~
 
 **Kurulumu başlatalım**
