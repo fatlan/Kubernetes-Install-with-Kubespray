@@ -136,9 +136,14 @@ export KUBECONFIG=$PWD/.kube/admin.conf
 kubectl get nodes -o wide
 ~~~
 
-##### Node before reboot, edit .profile or .bashrc
+##### Node after reboot if you use swap area, edit .profile or .bashrc and cron or rc.local or systemd service script run after restart
+##### ALL NODE
+~~~
+swapoff -a
+~~~
 ##### ONLY MASTER/S NODE
 ~~~
+swapoff -a
 export KUBECONFIG=$PWD/.kube/admin.conf
 ~~~
 
