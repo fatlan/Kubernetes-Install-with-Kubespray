@@ -6,11 +6,11 @@
 ~~~
 fatlan@kube-master01:~$ kubectl get nodes -o wide
 NAME            STATUS   ROLES                  AGE     VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION     CONTAINER-RUNTIME
-kube-master01   Ready    control-plane,master   5h51m   v1.22.2   10.10.10.191  <none>        Ubuntu 20.04.3 LTS   5.4.0-89-generic   docker://20.10.9
-kube-master02   Ready    control-plane,master   5h51m   v1.22.2   10.10.10.192  <none>        Ubuntu 20.04.3 LTS   5.4.0-89-generic   docker://20.10.9
-kube-master03   Ready    control-plane,master   5h51m   v1.22.2   10.10.10.193  <none>        Ubuntu 20.04.3 LTS   5.4.0-89-generic   docker://20.10.9
-kube-worker01   Ready    <none>                 5h50m   v1.22.2   10.10.10.194  <none>        Ubuntu 20.04.3 LTS   5.4.0-89-generic   docker://20.10.9
-kube-worker02   Ready    <none>                 5h50m   v1.22.2   10.10.10.195  <none>        Ubuntu 20.04.3 LTS   5.4.0-89-generic   docker://20.10.9
+kube-master01   Ready    control-plane,master   5h51m   v1.22.2   10.10.10.191  <none>        Ubuntu 20.04.3 LTS   5.4.0-89-generic   containerd://1.5.8
+kube-master02   Ready    control-plane,master   5h51m   v1.22.2   10.10.10.192  <none>        Ubuntu 20.04.3 LTS   5.4.0-89-generic   containerd://1.5.8
+kube-master03   Ready    control-plane,master   5h51m   v1.22.2   10.10.10.193  <none>        Ubuntu 20.04.3 LTS   5.4.0-89-generic   containerd://1.5.8
+kube-worker01   Ready    <none>                 5h50m   v1.22.2   10.10.10.194  <none>        Ubuntu 20.04.3 LTS   5.4.0-89-generic   containerd://1.5.8
+kube-worker02   Ready    <none>                 5h50m   v1.22.2   10.10.10.195  <none>        Ubuntu 20.04.3 LTS   5.4.0-89-generic   containerd://1.5.8
 ~~~
 
 ##### All host run
@@ -123,6 +123,8 @@ ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root c
 
 ##### You must change $USER with real user
 ~~~
+sudo sed -i '/swap/ s/^\(.*\)$/#\1/g' /etc/fstab
+
 mkdir -p .kube
 
 sudo cp /etc/kubernetes/admin.conf .kube/
@@ -134,17 +136,10 @@ export KUBECONFIG=$PWD/.kube/admin.conf
 kubectl get nodes -o wide
 ~~~
 
-##### Node after reboot if you use swap area, edit .profile or .bashrc and cron or rc.local or systemd service script run after restart
-##### ALL NODE
-~~~
-swapoff -a
-export LC_ALL=C
-~~~
+##### Node before reboot, edit .profile or .bashrc
 ##### ONLY MASTER/S NODE
 ~~~
-swapoff -a
 export KUBECONFIG=$PWD/.kube/admin.conf
-export LC_ALL=C
 ~~~
 
 
