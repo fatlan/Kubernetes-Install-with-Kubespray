@@ -123,8 +123,6 @@ ansible-playbook -i inventory/mycluster/hosts.yaml --become --become-user=root c
 
 ##### You must change $USER with real user
 ~~~
-sudo sed -i '/swap/ s/^\(.*\)$/#\1/g' /etc/fstab
-
 mkdir -p .kube
 
 sudo cp /etc/kubernetes/admin.conf .kube/
@@ -137,6 +135,7 @@ kubectl get nodes -o wide
 ~~~
 
 ##### Node before reboot if you use swap area, edit .profile or .bashrc and cron or rc.local or systemd service script run after restart
+Ama en geçerli yöntem **swap**'sız makine kurulumudur.
 ##### ALL NODE
 ~~~
 swapoff -a
